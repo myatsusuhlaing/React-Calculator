@@ -9,22 +9,22 @@ const [isNumLockOn, setIsNumLockOn] = useState(true);
     const input = (value) => {
         let newExpression;
         if (value === "=") {
-        const answer = evaluate(expression);
-        newExpression = answer.toString();
+            const answer = evaluate(expression.toString());
+            newExpression = answer.toString();
         } else {
-        newExpression = expression + (isNumLockOn ? value : getAlternativeSymbol(value));
+            newExpression = expression + (isNumLockOn ? value : getAlternativeSymbol(value));
         }
-        setExpression(newExpression);
+            setExpression(newExpression);
     };
   
     const getAlternativeSymbol = (value) => {
-    switch (value) {
-        case "1":
-        return "!";
-        case "2":
-        return "@";
-        default:
-        return value;
+        switch (value) {
+            case "1":
+            return "!";
+            case "2":
+            return "@";
+            default:
+            return value;
         }
     };
 
@@ -47,20 +47,23 @@ const [isNumLockOn, setIsNumLockOn] = useState(true);
 // };
 
     const calculate = () => {
-        const answer = evaluate(expression);
-        const newExpression = expression + '\n' + answer ; 
+        const answer = evaluate(expression.toString());
+        const newExpression = answer.toString() ; 
         setExpression(newExpression);
     }
+
     const handleKeyDown = (event) => {
         const key = event.key;
         if (/^[0-9]$/.test(key)) {
-        input(key);
+            input(key);
         } else if (key === "+" || key === "-" || key === "*" || key === "/") {
-        input(key);
+            input(key);
         } else if (key === "Enter") {
-        calculate();
+            calculate();
         } else if (key === "Backspace") {
-        setExpression(expression.slice(0, -1));
+            setExpression(expression.slice(0, -1));
+        } else if (key === "c"){
+            setExpression("");
         }
     };
 
@@ -74,16 +77,16 @@ const [isNumLockOn, setIsNumLockOn] = useState(true);
     return(
         <>
         <div className="calculator">
-        <div className="input">
-            <div className="row">
-            <textarea 
-            id="inputArea" 
-            value={expression} 
-            cols="30" 
-            rows="10"
-            />
+            <div className="input">
+                <div className="row">
+                <textarea 
+                id="inputArea" 
+                value={expression} 
+                cols="30" 
+                rows="10"
+                />
+                </div>
             </div>
-        </div>
         <div className="button">
             <div className="row">
             <div className="col" onClick={() => input('1')}>{isNumLockOn ? "1" : "!"}</div>
@@ -107,7 +110,7 @@ const [isNumLockOn, setIsNumLockOn] = useState(true);
             <div className="col" onClick={() => input('+')}>+</div>
             <div className="col" onClick={() => input('-')}>-</div>
             <div className="col" onClick={() => input('*')}>*</div>
-            <div className="col" onClick={() => input('/')}>/</div>
+            <div className="col" onClick={() => input('/')}>{isNumLockOn ? "/" : "?"}</div>
             </div>
         </div>
         </div>
