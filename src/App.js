@@ -4,10 +4,9 @@ import "./App.css";
 function App () {
   return(
     <>
-    <div className="App">
-      <h2>React Calculator</h2>
-    </div>
+    <div className="calculator h-screen md:min-w-full flex items-center justify-center bg-cyan-200">
     <Calculator />
+    </div>
     </>
   )
 }

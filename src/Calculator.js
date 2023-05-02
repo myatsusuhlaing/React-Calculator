@@ -76,37 +76,41 @@ const [isNumLockOn, setIsNumLockOn] = useState(true);
 
     return(
         <>
-        <div className="calculator">
-            <div className="input">
-                <div className="row">
+        <div className=" bg-cyan-800 font-title ">
+        {/* <h2 className=" text-3xl text-center pb-2  text-stone-500 font-medium font-title bg-cyan-500">
+            React Calculator
+        </h2> */}
+            <div className="input p-4 ">
+                <div className="row ">
                 <textarea 
                 id="inputArea" 
                 value={expression} 
                 cols="30" 
                 rows="10"
+                className="bg-slate-300 rounded border-none "
                 />
                 </div>
             </div>
-        <div className="button">
-            <div className="row">
+        <div className="button flex p-4">
+            <div className="row  grid grid-cols-3 gap-3">
             <div className="col" onClick={() => input('1')}>{isNumLockOn ? "1" : "!"}</div>
             <div className="col" onClick={() => input('4')}>{isNumLockOn ? "4" : "$"}</div>
             <div className="col" onClick={() => input('7')}>{isNumLockOn ? "7" : "&"}</div>
-            <div className="col" onClick={clear}>c</div>
+            <div className="col" onClick={clear}>C</div>
             </div>
-            <div className="row">
+            <div className="row  grid grid-cols-3 gap-3">
             <div className="col" onClick={() => input('2')}>{isNumLockOn ? "2" : "@"}</div>
             <div className="col" onClick={() => input('5')}>{isNumLockOn ? "5" : "%"}</div>
             <div className="col" onClick={() => input('8')}>{isNumLockOn ? "8" : "*"}</div>
             <div className="col" onClick={() => input('0')}>{isNumLockOn ? "0" : ")"}</div>
             </div>
-            <div className="row">
+            <div className="row  grid grid-cols-3 gap-3">
             <div className="col" onClick={() => input('3')}>{isNumLockOn ? "3" : "#"}</div>
             <div className="col" onClick={() => input('6')}>{isNumLockOn ? "6" : "^"}</div>
             <div className="col" onClick={() => input('9')}>{isNumLockOn ? "9" : "("}</div>
             <div className="col" onClick={calculate}>{isNumLockOn ? "=" : "+"}</div>
             </div>
-            <div className="row">
+            <div className="row  grid grid-cols-3 gap-3">
             <div className="col" onClick={() => input('+')}>+</div>
             <div className="col" onClick={() => input('-')}>-</div>
             <div className="col" onClick={() => input('*')}>*</div>
