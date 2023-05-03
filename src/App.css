@@ -1,8 +1,4 @@
 
-.button {
-  cursor:pointer;
-}
-
 .row {
   display: flex;
   flex-direction: column;
@@ -13,16 +9,11 @@
   width: 90px;
   text-align: center;
   font-size: 3.7rem;
-  border: 1px solid gray;
   background-color: rgb(226, 226, 226);
   border: 0.03px solid rgb(173, 173, 173);
   border-radius: 100px;
   margin: 5px;
-}
-.col:hover{
-  background-color: rgb(104, 104, 104);
-  color:beige;
-  border: none;
+  cursor:pointer;
 }
 
 textarea {
@@ -32,7 +23,37 @@ textarea {
   text-align: right;
   padding: 1rem;
 }
-@media screen and (max-width: 450px) {
+@media only screen and (min-width: 992px) {  
+  .col:hover{
+    background-color: none;
+    border: none;
+  }
+  .col:active{
+    background-color: rgb(104, 104, 104);
+    color:beige;
+  }
+}
+@media only screen and (min-width: 768px) {  
+  .col:hover{
+    background-color: none;
+    border: none;
+  }
+  .col:active{
+    background-color: rgb(104, 104, 104);
+    color:beige;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .col:hover{
+    background-color: none;
+    border: none;
+  }
+  .col:active{
+    background-color: rgb(104, 104, 104);
+    color:beige;
+  }
+}
+@media only screen and (max-width: 600px) {
   .calculator{
     display: flex;
     align-items: center;
@@ -44,11 +65,19 @@ textarea {
     width: 70px;
     text-align: center;
     font-size: 2.7rem;
-    border: 1px solid gray;
     background-color: rgb(226, 226, 226);
     border: 0.03px solid rgb(173, 173, 173);
     border-radius: 100px;
     margin: 5px;
+    cursor:pointer;
+  }
+  .col:hover{
+    background-color: none;
+    border: none;
+  }
+  .col:active{
+    background-color: rgb(104, 104, 104);
+    color:beige;
   }
   textarea {
     width: 320px;
@@ -58,7 +87,7 @@ textarea {
     padding: 1rem;
   }
 }
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 360px) {
   .calculator{
     display: flex;
     align-items: center;
@@ -66,20 +95,29 @@ textarea {
     width: 100%;
   }
   .col{
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     text-align: center;
-    font-size: 2.3rem;
-    border: 1px solid gray;
+    font-size: 1.5rem;
     background-color: rgb(226, 226, 226);
     border: 0.03px solid rgb(173, 173, 173);
     border-radius: 100px;
     margin: 5px;
+    cursor:pointer;
   }
+  .col:hover{
+    background-color: none;
+    border: none;
+
+  }
+.col:active{
+  background-color: rgb(104, 104, 104);
+  color:beige;
+}
   textarea {
-    width: 280px;
-    height: 100px;
-    font-size: 2.5rem;
+    width: 200px;
+    height: 80px;
+    font-size: 2rem;
     text-align: right;
     padding: 1rem;
   }
