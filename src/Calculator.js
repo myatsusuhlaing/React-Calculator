@@ -36,6 +36,10 @@ const [isNumLockOn, setIsNumLockOn] = useState(true);
         setExpression("");
       };
 
+    const backspace = () => {
+        setExpression(expression.slice(0, -1));
+    }
+
 // const input = (value) => {
 //     const newExpression = expression + value;
 //     setExpression(newExpression);
@@ -58,7 +62,7 @@ const [isNumLockOn, setIsNumLockOn] = useState(true);
             input(key);
         } else if (key === "+" || key === "-" || key === "*" || key === "/") {
             input(key);
-        } else if (key === "Enter") {
+        } else if (key === "Enter" || key === "=") {
             calculate();
         } else if (key === "Backspace") {
             setExpression(expression.slice(0, -1));
@@ -91,12 +95,12 @@ const [isNumLockOn, setIsNumLockOn] = useState(true);
                 />
                 </div>
             </div>
-        <div className="button flex p-4">
+        <div className="button flex px-4">
             <div className="row  grid grid-cols-3 gap-3">
             <div className="col" onClick={() => input('1')}>{isNumLockOn ? "1" : "!"}</div>
             <div className="col" onClick={() => input('4')}>{isNumLockOn ? "4" : "$"}</div>
             <div className="col" onClick={() => input('7')}>{isNumLockOn ? "7" : "&"}</div>
-            <div className="col" onClick={clear}>C</div>
+            <div className="col" onClick={backspace}> ↩ </div>
             </div>
             <div className="row  grid grid-cols-3 gap-3">
             <div className="col" onClick={() => input('2')}>{isNumLockOn ? "2" : "@"}</div>
@@ -117,6 +121,7 @@ const [isNumLockOn, setIsNumLockOn] = useState(true);
             <div className="col" onClick={() => input('/')}>{isNumLockOn ? "/" : "?"}</div>
             </div>
         </div>
+        <div className="back m-4 rounded" onClick={clear}>Clear</div>
         </div>
         </>
     )
